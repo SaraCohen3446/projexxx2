@@ -51,6 +51,7 @@ export default function Search() {
         <div className="formContainer">
              {/* טופס דינמי עם תקינות, המאפשר איסוף פרטי משתמש, חיפוש כתובת עם הצעות מבוססות API, והצגת מפה בהתאם לבחירה.*/}
             <form className="form-add" onSubmit={handleSubmit(onSubmit)}>
+            <label>שם</label>
             <input {...register("userName", {required: "שם משתמש הוא שדה חובה", minLength: { value: 3, message: "שם משתמש חייב להיות לפחות 3 תווים" }})} type="text"/>
                 {errors.userName && <p className="error">{errors.userName.message}</p>}
                 
@@ -96,10 +97,7 @@ export default function Search() {
                 {errors.maxDistance && <p className="error">{errors.maxDistance.message}</p>}
 
 
-                <label>סטטוס</label>
-                <input {...register("status", { required: "סטטוס הוא שדה חובה" })} type="text" />
-                {errors.status && <p className="error">{errors.status.message}</p>}
-
+                
                 <input type="submit" value="שלח" />
             </form>
 
